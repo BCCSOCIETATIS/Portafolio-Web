@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Camilo Botello Chávez · Automatizador de empresas con IA · Chatbots, agentes de IA, Zoho One, n8n y WhatsApp · Cali, Colombia">
+<title>Camilo Botello Chávez · Automatización de empresas con IA</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>竜</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600&display=swap">
+<style>
+:root{--bg:#0A0614;--panel:#140C26;--ink:#ECE7FF;--mute:#A99FCB;--pink:#FF2E88;--cyan:#19E3FF;--yel:#FFE600;--line:#3A2570;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html{background:var(--bg);scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;color:var(--ink);font:500 17px/1.55 "Rajdhani",system-ui,"Segoe UI",sans-serif;
+background:
+ radial-gradient(900px 500px at 85% -10%,rgba(255,46,136,.22),transparent 60%),
+ radial-gradient(800px 500px at -10% 30%,rgba(25,227,255,.14),transparent 60%),
+ repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 4px),var(--bg)}
+h1,h2,h3{font-family:"Orbitron","Bahnschrift","DejaVu Sans",sans-serif;margin:0;line-height:1.12;letter-spacing:.01em}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+a{color:var(--cyan)}
+.hero{padding:64px 0 48px}
+.hero .tag{display:inline-block;border:1px solid var(--cyan);color:var(--cyan);padding:4px 12px;font-size:15px;margin-bottom:22px;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+.hero h1{font-size:clamp(34px,6.2vw,66px);font-weight:800;color:var(--ink);text-shadow:3px 3px 0 var(--pink),-2px -2px 0 rgba(25,227,255,.55)}
+.hero .role{font:600 clamp(18px,2.6vw,26px)/1.3 "Orbitron","DejaVu Sans",sans-serif;color:var(--cyan);margin:18px 0 14px}
+.hero p{max-width:60ch;color:var(--mute);font-size:19px;margin:0 0 26px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid var(--line);background:var(--panel);padding:6px 14px;font-weight:600;font-size:16px}
+.chip.hot{border-color:var(--pink);color:var(--pink)}
+section{padding:46px 0 14px}
+section>.wrap>h2{font-size:clamp(24px,3.6vw,34px);font-weight:800;margin-bottom:8px;padding-left:16px;border-left:5px solid var(--pink)}
+.lead{color:var(--mute);max-width:64ch;margin:0 0 26px 21px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);padding:20px 20px 18px;break-inside:avoid;
+clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px))}
+.card h3{font-size:17px;color:var(--cyan);margin-bottom:8px}
+.card p{margin:0;color:var(--mute);font-size:16.5px}
+.card.pk h3{color:var(--pink)}
+.case{background:var(--panel);border:1px solid var(--pink);padding:28px;margin-bottom:18px;break-inside:avoid;
+clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px))}
+.case .k{color:var(--yel);font-weight:600;margin-bottom:6px}
+.case h3{font-size:clamp(20px,3vw,27px);margin-bottom:10px}
+.case p{color:var(--mute);margin:0 0 14px;max-width:72ch}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:6px 28px}
+.case ul,.card ul{margin:0;padding-left:20px}
+.case li,.card li{margin:5px 0;color:var(--ink)}
+.case li::marker,.card li::marker{color:var(--pink)}
+.case h4{margin:6px 0 4px;color:var(--cyan);font:700 15px "Orbitron","DejaVu Sans",sans-serif}
+.stack{display:flex;flex-wrap:wrap;gap:9px}
+.stack span{border:1px solid var(--line);background:var(--panel);padding:5px 13px;font-weight:600;font-size:16px}
+.group{margin-bottom:22px;break-inside:avoid}
+.group h3{font-size:15px;color:var(--pink);margin-bottom:10px}
+ol.steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+ol.steps li{counter-increment:s;border-left:3px solid var(--cyan);padding:2px 0 2px 16px;break-inside:avoid}
+ol.steps li::before{content:"Paso " counter(s);display:block;color:var(--yel);font-weight:600;font-size:15px}
+ol.steps b{display:block;font:700 17px "Orbitron","DejaVu Sans",sans-serif;margin:2px 0 4px}
+ol.steps span{color:var(--mute);font-size:16px}
+.cta{margin:34px 0 44px;border:2px solid var(--cyan);padding:34px 30px;background:linear-gradient(120deg,rgba(255,46,136,.18),rgba(25,227,255,.12));break-inside:avoid;
+clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px))}
+.cta h2{font-size:clamp(24px,3.6vw,36px);margin-bottom:12px}
+.cta p{margin:0 0 6px;color:var(--ink);font-size:19px}
+.cta .c{margin-top:16px;display:grid;gap:4px;font-weight:600}
+footer{color:var(--mute);font-size:15px;padding:0 0 38px}
+.btn{display:inline-block;margin-top:18px;background:var(--pink);color:#fff;padding:12px 26px;text-decoration:none;font:700 15px "Orbitron","DejaVu Sans",sans-serif;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
+.btn:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+@media screen and (prefers-reduced-motion:no-preference){.hero h1{animation:glitch 1.1s steps(2,end) 1}}
+@keyframes glitch{0%{text-shadow:-6px 0 var(--cyan),6px 0 var(--pink)}40%{text-shadow:4px 0 var(--cyan),-4px 0 var(--pink)}100%{text-shadow:3px 3px 0 var(--pink),-2px -2px 0 rgba(25,227,255,.55)}}
+h2,.lead{break-after:avoid}
+section.pb{page-break-before:always;break-before:page}
+@page{size:A4;margin:0}
+@media print{body{zoom:.77;font-size:16px}.case{padding:20px 24px;margin-bottom:12px}.case li{margin:3px 0}.lead{margin-bottom:12px}.group{margin-bottom:10px}.group h3{margin-bottom:6px}.stack{gap:6px}.stack span{padding:3px 10px;font-size:15px}.cta{padding:22px 26px}section{padding:6mm 0 0}.grid{grid-template-columns:repeat(3,1fr)}.wrap{max-width:none;padding:0 15mm}.hero{padding:16mm 0 6mm}section{padding:6mm 0 1mm}ol.steps{grid-template-columns:repeat(5,1fr);gap:10px}ol.steps li{padding-left:10px}ol.steps b{font-size:14px}ol.steps span{font-size:14px}.btn{display:none}.cta{margin:5mm 0 6mm}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+<span class="tag">Disponible para proyectos · Cali, Colombia</span>
+<h1>Camilo Botello Chávez</h1>
+<div class="role">Automatizador de empresas con IA</div>
+<p>Hago que tu negocio atienda, agende, cotice y venda solo, las 24 horas: chatbots y agentes de IA en WhatsApp, CRM, facturación, marketing y páginas web conectados en un solo sistema.</p>
+<div class="chips"><span class="chip hot">Agentes de IA</span><span class="chip">Chatbots 24/7</span><span class="chip">WhatsApp</span><span class="chip">Zoho One</span><span class="chip">n8n</span><span class="chip">Landings y web</span><span class="chip">Ciberseguridad</span></div>
+</header>
+</div>
+
+<section><div class="wrap">
+<h2>Qué automatizo</h2>
+<p class="lead">Del primer mensaje del cliente hasta la factura y el seguimiento, todo conectado.</p>
+<div class="grid">
+<div class="card"><h3>Chatbots y agentes de IA</h3><p>Asistentes en WhatsApp, web e Instagram que responden al instante, califican al cliente, agendan, venden y pasan a una persona cuando hace falta.</p></div>
+<div class="card"><h3>CRM y ventas</h3><p>Cada lead entra, se clasifica y se asigna automáticamente, con seguimiento por etapas y recordatorios sin que nadie los olvide.</p></div>
+<div class="card"><h3>Facturación y finanzas</h3><p>Cotizaciones, facturas y pagos conectados al CRM para que ventas y contabilidad hablen el mismo idioma.</p></div>
+<div class="card"><h3>Marketing automatizado</h3><p>Captación desde landings, formularios, secuencias de correo y WhatsApp, y campañas segmentadas por el comportamiento del cliente.</p></div>
+<div class="card"><h3>Páginas web y landings</h3><p>Rediseño y reestructuración de la página principal y las landings: más claras, más rápidas y pensadas para convertir.</p></div>
+<div class="card"><h3>Integraciones a la medida</h3><p>APIs, webhooks y bases de datos para conectar lo que ya usas, sin cambiar tu forma de trabajar.</p></div>
+</div>
+</div></section>
+
+<section class="pb"><div class="wrap">
+<h2>Caso destacado</h2>
+<p class="lead">Un consultorio completo funcionando con automatización de punta a punta.</p>
+<div class="case">
+<div class="k">Medicina estética y tricología</div>
+<h3>CEMETRI · Centro de medicina estética y tricología</h3>
+<p>Automaticé la operación del centro sobre Zoho One y le puse un asistente de IA que atiende, agenda y vende al instante, a cualquier hora. Además rediseñé su presencia web para captar mejor a los pacientes.</p>
+<div class="cols">
+<div><h4>Zoho One</h4><ul><li>Zoho CRM para gestionar pacientes y oportunidades</li><li>Zoho Books para cotizaciones y facturación</li><li>Zoho Marketing para campañas y seguimiento</li><li>Zoho Forms para clasificar los leads que llegan desde las landings oficiales</li><li>Y el resto de apps de Zoho One según la necesidad</li></ul></div>
+<div><h4>Chatbot de IA 24/7</h4><ul><li>Asistente conectado por API keys, implementado en Woztell</li><li>También se puede montar en WATI u otras plataformas</li><li>Agenda citas, vende y responde al instante</li><li>Prompt estructurado de 19 secciones, con conciencia de fecha y reglas de prioridad para agendar</li><li>Corrección de pérdida de contexto y control de políticas</li></ul></div>
+<div><h4>Web y landings</h4><ul><li>Modificación y reestructuración de la página principal</li><li>Nuevas landings enfocadas en conversión</li><li>Mejoras visuales y de experiencia</li><li>Formularios conectados directo al CRM</li></ul></div>
+</div>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2>Otros proyectos</h2>
+<p class="lead">Distintos sectores, la misma lógica: menos tareas manuales y respuestas inmediatas.</p>
+<div class="case">
+<div class="k">Repuestos automotrices</div>
+<h3>AutoPoint · Bot de cotización por WhatsApp</h3>
+<p>El cliente pide un repuesto por WhatsApp y el sistema consulta a los proveedores, captura cantidades y arma la cotización, con flujo de autorización y registro de todo en base de datos.</p>
+<div class="cols"><ul><li>Flujo completo en n8n</li><li>Base de datos en Supabase (PostgreSQL)</li><li>Migración de WATI a WhatsApp Business Cloud API de Meta</li></ul><ul><li>Manejo de respuestas de proveedores y autorizaciones</li><li>Integración con Google Sheets</li><li>Sitio web de presentación con animación al hacer scroll</li></ul></div>
+</div>
+<div class="case">
+<div class="k">Compras desde el exterior</div>
+<h3>Bots de compra automatizada · tipo Stellar AIO</h3>
+<p>Configuración y operación de bots de checkout automático para conseguir productos de alta demanda en tiendas del exterior, con la infraestructura necesaria para que funcionen sin parar.</p>
+<div class="cols"><ul><li>Perfiles, cuentas y sesiones por tienda</li><li>Proxies y monitores de stock</li></ul><ul><li>Servidores para ejecución 24/7</li><li>Automatización del proceso de compra completo</li></ul></div>
+</div>
+</div></section>
+
+<section class="pb"><div class="wrap">
+<h2>Modelos de IA y agentes</h2>
+<p class="lead">Elijo el modelo según la tarea, el costo y la velocidad que necesita cada negocio.</p>
+<div class="group"><h3>Modelos de lenguaje</h3><div class="stack"><span>OpenAI GPT</span><span>Claude (Anthropic)</span><span>Gemini (Google)</span><span>Llama y modelos abiertos</span></div></div>
+<div class="group"><h3>Técnicas de agentes</h3><div class="stack"><span>Ingeniería de prompts</span><span>Function calling y herramientas</span><span>RAG con base de conocimiento</span><span>Embeddings y búsqueda vectorial</span><span>Memoria de conversación</span><span>Agentes con varios pasos</span><span>Salidas estructuradas en JSON</span><span>Control de políticas y escalamiento a humano</span></div></div>
+<div class="group"><h3>Voz, audio e imagen</h3><div class="stack"><span>Transcripción de notas de voz</span><span>Lectura de imágenes y documentos</span><span>Respuestas por audio</span></div></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>Herramientas y plataformas</h2>
+<p class="lead">Un stack probado en proyectos reales.</p>
+<div class="group"><h3>Automatización</h3><div class="stack"><span>n8n</span><span>Make</span><span>Zapier</span><span>Webhooks</span><span>APIs REST</span></div></div>
+<div class="group"><h3>Mensajería</h3><div class="stack"><span>WhatsApp Business Cloud API</span><span>WATI</span><span>Woztell</span><span>Meta for Developers</span><span>Twilio</span></div></div>
+<div class="group"><h3>Negocio</h3><div class="stack"><span>Zoho One</span><span>Zoho CRM</span><span>Zoho Books</span><span>Zoho Marketing</span><span>Zoho Forms</span><span>Google Workspace</span><span>Google Sheets</span></div></div>
+<div class="group"><h3>Datos y desarrollo</h3><div class="stack"><span>Supabase</span><span>PostgreSQL</span><span>SQL</span><span>JavaScript</span><span>HTML y CSS</span><span>Git y GitHub</span></div></div>
+</div></section>
+
+<section class="pb"><div class="wrap">
+<h2>Servidores y ciberseguridad</h2>
+<p class="lead">Lo que automatizo tiene que correr seguro y sin caerse.</p>
+<div class="grid">
+<div class="card pk"><h3>Servidores</h3><p>Montaje y mantenimiento de los servidores donde corren tus bots y automatizaciones, disponibles las 24 horas.</p></div>
+<div class="card pk"><h3>Seguridad de accesos</h3><p>Manejo seguro de API keys, credenciales y permisos, para que cada herramienta tenga solo el acceso que necesita.</p></div>
+<div class="card pk"><h3>Protección de datos</h3><p>Cuidado de la información de clientes y pacientes, con copias de respaldo y monitoreo de lo que pasa en tus sistemas.</p></div>
+</div>
+<div class="group" style="margin-top:20px"><h3>Pruebas y análisis de seguridad</h3><div class="stack"><span>Pruebas de penetración (pentesting)</span><span>Hacking ético</span><span>Análisis de vulnerabilidades</span><span>OWASP Top 10</span><span>Seguridad de APIs y webhooks</span></div></div>
+<div class="group"><h3>Defensa, identidad y accesos</h3><div class="stack"><span>Hardening de servidores Linux</span><span>Firewalls y reglas de red</span><span>VPN y túneles seguros</span><span>Cifrado en tránsito y en reposo</span><span>Seguridad en bases de datos (RLS)</span><span>Gestión y rotación de secretos y API keys</span><span>Autenticación con OAuth, JWT y MFA</span><span>Mínimo privilegio y control de roles</span></div></div>
+<div class="group"><h3>Monitoreo y respuesta</h3><div class="stack"><span>Logs y monitoreo continuo</span><span>Detección de intrusiones</span><span>Respuesta a incidentes</span><span>Copias de respaldo y recuperación ante desastres</span></div></div>
+<div class="group"><h3>Seguridad en IA y normativa</h3><div class="stack"><span>Prompt injection y jailbreaks</span><span>Fuga de datos en agentes</span><span>Permisos y límites de herramientas del agente</span><span>Privacidad de datos con LLM</span><span>Protección de datos personales (Ley 1581, Habeas Data)</span></div></div>
+</div></section>
+
+<section><div class="wrap">
+<h2>Cómo trabajo</h2>
+<p class="lead">Un proceso corto y claro, de la idea a producción.</p>
+<ol class="steps">
+<li><b>Diagnóstico</b><span>Entiendo cómo funciona tu negocio y definimos qué automatizar primero.</span></li>
+<li><b>Diseño</b><span>Defino el flujo, las herramientas y el comportamiento del asistente.</span></li>
+<li><b>Construcción</b><span>Armo y conecto el sistema, y lo pruebas con casos reales.</span></li>
+<li><b>Puesta en marcha</b><span>Salimos a producción con tus canales y tus datos conectados.</span></li>
+<li><b>Mejora continua</b><span>Reviso conversaciones y resultados, y ajusto lo que haga falta.</span></li>
+</ol>
+</div></section>
+
+<div class="wrap">
+<div class="cta">
+<h2>Cuéntame qué quieres quitarte de encima</h2>
+<p>Dime cómo atiendes hoy a tus clientes y te muestro qué se puede automatizar.</p>
+<div class="c"><span>WhatsApp: <a href="https://wa.me/573156464088">+57 315 646 4088</a></span><span>Correo: <a href="mailto:jecam.col@gmail.com">jecam.col@gmail.com</a></span></div>
+<a class="btn" href="https://wa.me/573156464088">Hablemos por WhatsApp</a>
+</div>
+<footer>© Camilo Botello Chávez · Automatización de empresas con IA · Cali, Colombia</footer>
+</div>
+</body>
+</html>
